@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>   
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Legal Document Summarizer</title>
+    <style>
+        body {
+            background: rgb(180,106,58);
+background: linear-gradient(135deg, rgba(180,106,58,1) 0%, rgba(195,22,22,1) 21%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 72%, rgba(29,47,253,1) 100%);
+            
+        }
+
+        body h1{
+            color: white;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        body h3{
+            color: white;
+        }
+
+        body label{
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            padding: 4rem;
+            justify-content: space-evenly;
+            width: 100vw !important;
+            margin: 0;
+            max-width: 100vw;
+        }
+
+        .textEnter {
+            width: 40%;
+        }
+
+        .textEnter form {
+            width: 100%;
+        }
+
+        .textSummary {
+            width: 40%;
+        }
+        .punjabiheader{
+          text-align: center;
+        }
+        }
+        @media only screen and (max-width:800px) {
+            .container{
+                flex-direction: column;
+            }
+            .textEnter{
+                width: 100%;
+            }
+            .textSummary{
+                width: 100%;
+                margin-top: 2rem;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ਕਾਨੂੰਨੀ ਦਸਤਾਵੇਜ਼ ਸੰਖੇਪ</h1>
+    <h1>Legal Document Summarizer</h1>
+    <div class="container">
+
+        <div class="textEnter">
+            <form action="{{url_for('Summarize')}}" method="post">
+                <div class="form-group">
+                    <h3></h3>
+                    <h3>Enter Your Text Here</h3>
+                    <textarea class="form-control" name="data" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height:500px"></textarea>
+                    <div style="margin-top: 1rem">
+                        <label for="customRange2" class="form-label">Max Length</label>
+                        <input name="maxL" type="range" min="30" max="1000"></input>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="textSummary">
+            <h3 class="punjabiheader">ਸਾਰ </h3>
+            <textarea class="form-control" name="result" placeholder="Leave a comment here" id="floatingTextarea2"
+                style="height: 500px">{{result}}</textarea>
+        </div>
+    </div>
+</body>
+
+</html>
